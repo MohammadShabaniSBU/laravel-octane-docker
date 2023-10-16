@@ -1,0 +1,4 @@
+FROM ghcr.io/mohammadshabanisbu/laravel-octane-docker:8.2
+
+RUN apk add nodejs npm
+RUN npm i chokidar
