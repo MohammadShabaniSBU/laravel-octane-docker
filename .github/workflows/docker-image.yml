@@ -25,7 +25,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
-          images: ghcr.io/MohammadShabaniSBU/laravel-octane
+          images: ghcr.io/MohammadShabaniSBU/laravel-octane-docker
           tags: 8.2
       
       - name: Build and push Docker image
