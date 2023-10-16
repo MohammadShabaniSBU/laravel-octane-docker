@@ -39,4 +39,8 @@ RUN rm -rf composer-setup.php
 
 COPY supervisord-app.conf /etc/supervisord.conf
 
+EXPOSE 80
+
+WORKDIR /app
+
 ENTRYPOINT ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
