@@ -33,6 +33,12 @@ RUN pecl channel-update pecl.php.net \
     && docker-php-ext-configure pcntl --enable-pcntl \
     && docker-php-ext-install pcntl
 
+RUN echo "file_uploads = On \
+memory_limit = 128M \
+upload_max_filesize = 120M \
+post_max_size = 120M \
+max_execution_time = 1200" >> /usr/local/etc/php/conf.d/uploads.ini
+
 RUN curl -sS https://getcomposer.org/installer -o composer-setup.php
 RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 RUN rm -rf composer-setup.php
