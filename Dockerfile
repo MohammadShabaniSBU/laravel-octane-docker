@@ -8,6 +8,8 @@ RUN apk --update --no-cache add wget \
   libmemcached-dev \
   libmcrypt-dev \
   libxml2-dev \
+  libpng-dev \
+  libzip-dev \
   imagemagick-dev \
   pcre-dev \
   libtool \
@@ -30,6 +32,10 @@ RUN pecl channel-update pecl.php.net \
     && docker-php-ext-enable imagick \
     && docker-php-ext-enable mcrypt \
     && docker-php-ext-enable swoole \
+    && docker-php-ext-configure gd \
+    && docker-php-ext-install gd \
+    && docker-php-ext-configure zip \
+    && docker-php-ext-install zip \
     && docker-php-ext-configure pcntl --enable-pcntl \
     && docker-php-ext-install pcntl
 
